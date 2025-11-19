@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion'
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa'
 
 const Projects = () => {
   const projects = [
@@ -84,7 +83,7 @@ const Projects = () => {
                 <div className="p-6">
                   <h3 className="text-2xl font-bold text-gray-900 mb-3">{project.title}</h3>
                   <p className="text-gray-700 mb-4">{project.description}</p>
-                  <div className="flex flex-wrap gap-2 mb-4">
+                  <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech, techIndex) => (
                       <span
                         key={techIndex}
@@ -93,24 +92,6 @@ const Projects = () => {
                         {tech}
                       </span>
                     ))}
-                  </div>
-                  <div className="flex gap-4">
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-gray-700 hover:text-primary-600 transition-colors"
-                    >
-                      <FaGithub /> Code
-                    </a>
-                    <a
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-gray-700 hover:text-primary-600 transition-colors"
-                    >
-                      <FaExternalLinkAlt /> Live Demo
-                    </a>
                   </div>
                 </div>
               </motion.div>
