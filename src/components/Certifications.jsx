@@ -1,0 +1,55 @@
+import { motion } from 'framer-motion'
+import { FaCertificate } from 'react-icons/fa'
+
+const Certifications = () => {
+  const certifications = [
+    {
+      title: 'Ultimate AWS Certified Developer Associate',
+      issuer: 'Udemy',
+      period: '2025',
+      description: 'Comprehensive certification covering AWS services, serverless architectures, and cloud development best practices.',
+    },
+  ]
+
+  return (
+    <section id="certifications" className="section-container bg-gray-50">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        <h2 className="section-title">Certifications</h2>
+        <div className="max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8">
+            {certifications.map((cert, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="card"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 flex-shrink-0">
+                    <FaCertificate size={24} />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">{cert.title}</h3>
+                    <p className="text-primary-600 font-semibold mb-2">{cert.issuer}</p>
+                    <p className="text-gray-500 text-sm mb-3">{cert.period}</p>
+                    <p className="text-gray-700">{cert.description}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </motion.div>
+    </section>
+  )
+}
+
+export default Certifications
+
